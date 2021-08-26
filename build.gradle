@@ -1,0 +1,32 @@
+group 'com.cjl'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+    compile group: 'org.testng', name: 'testng', version: '6.10'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    compile group: 'io.github.lukehutch', name: 'fast-classpath-scanner', version: '2.0.17'
+
+}
+
+task testNGExamplesJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Junit Examples',
+                'Implementation-Version': "$project.version",
+                'Main-Class': 'com.nemesissy.Poop'
+    }
+    baseName = "junitExamples" + '-all'
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
