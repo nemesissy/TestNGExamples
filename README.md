@@ -4,24 +4,24 @@
 
 https://www.amsmeteors.org
 
-(2021/07/21)
+(2022/08/30)
 
 ### Pre-requisites ###
 
 * Im using IJ to create
 * Im using GRADLE to build
 * You will need to download ChromeDriver from https://chromedriver.chromium.org/downloads
-* Update <TBD> to point to your ChromeDriver
+* Update com.nemesissy.tests.TestCaseBase to point to your ChromeDriver
 
 ### Run all Tests
 
-$ <TBD>
+$ ./gradle test
 
 ### Run a  singe test
-$ <TBD>
+$ ./gradlew test --tests "com.nemesissy.tests.VerifyHomeLink"
 
 ### Location of the HTML report
-<TBD>
+./build/reports/tests/test/index.httml
 
 ### Usages
 * Page Object Modeling
